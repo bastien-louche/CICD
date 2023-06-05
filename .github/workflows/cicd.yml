@@ -22,6 +22,7 @@ jobs:
       - run: npm run build
   test-next:
     runs-on: ubuntu-latest
+    steps:
       - run: npm run e2e:headless
       - run: ls -a
       - uses: actions/upload-artifact@v3
