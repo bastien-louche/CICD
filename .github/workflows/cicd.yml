@@ -10,7 +10,7 @@ jobs:
         with:
           node-version: '16'
 
-      - run: npm cache clean --force
+      # - run: npm cache clean --force
       
       - uses: actions/cache@v3
         with:
@@ -18,9 +18,19 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: npm install
       - run: npm run build
+
   test-next:
     runs-on: ubuntu-latest
+    needs: build
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - uses: actions/cache@v3
+        with:
+          path: 'node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: npm run e2e:headless
       - run: ls -a
       - uses: actions/upload-artifact@v3
