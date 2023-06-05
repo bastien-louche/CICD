@@ -9,7 +9,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: ls -a
+      - run: npm cache clean --force
       - run: npm install
       - run: ls -a
       - run: npm run build
