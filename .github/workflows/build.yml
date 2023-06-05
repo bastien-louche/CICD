@@ -9,6 +9,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
+      - run: ls -a
       - run: npm install
+      - run: ls -a
       - run: npm run build
       - run: ls -a
