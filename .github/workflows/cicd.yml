@@ -1,16 +1,16 @@
 name: build
-run-name: ${{ github.actor }} is build next project
-# on: [push]
+run-name: ${{ github.actor }} is cicd next project
+on: [push]
 jobs:
   build-next:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - uses: actions/upload-artifact@v3
         with:
           node-version: '16'
       - run: npm cache clean --force
       - run: npm install
-      - run: ls -a
-      - run: npm run build
+      - run: npm run e2e:headless
       - run: ls -a
