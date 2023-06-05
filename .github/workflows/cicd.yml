@@ -17,5 +17,5 @@ jobs:
       - uses: actions/upload-artifact@v3
       with:
         name: my-artifact-e2e-video
-        path: cypress/videos # or path/to/artifact
+        path: cypress/videos/ # or path/to/artifact
       
