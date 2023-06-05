@@ -9,13 +9,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - uses: actions/upload-artifact@v3
-        with:
-          name: my-artifact
-    path: path/to/artifact/world.txt
       - run: npm cache clean --force
       - run: npm install
       - run: npm run build
       - run: npm run e2e:headless
       - run: ls -a
+      - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact-e2e-video
+        path: cypress/videos # or path/to/artifact
       
