@@ -2,7 +2,7 @@ name: build
 run-name: ${{ github.actor }} is build next project
 on: [push]
 jobs:
-  check-bats-version:
+  build-next:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -10,3 +10,4 @@ jobs:
         with:
           node-version: '14'
       - run: npm run build
+      - run: ls -a
