@@ -14,10 +14,11 @@ jobs:
         script: |
           whoami
           ls -lah
-          cd /dev/CICD
+          cd dev/CICD
           git pull
           npm install
-          pm2 restart
+          npm run build
+          pm2 reload npm -- run start
     # - uses: actions/checkout@v3
     # - uses: actions/setup-node@v3
     #   with:
