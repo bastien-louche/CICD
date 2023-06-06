@@ -20,7 +20,7 @@ jobs:
      - run: cd /home
      - run: ls -lah
      - run: cd /
-     - run: ls -lah
+     - run: ls -l
 
   test:
    runs-on: ubuntu-latest
