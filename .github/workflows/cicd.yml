@@ -19,7 +19,7 @@ jobs:
      - run: ls -lah
      - run: cd /home
      - run: ls -lah
-     - run: cd /home/runner/.cache/cypress
+     - run: cd /home/runner
      - run: ls -lah
 
   test:
