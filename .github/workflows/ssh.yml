@@ -1,0 +1,14 @@
+name: ssh
+run-name: ${{ github.actor }} is connect to ssh
+on: [push]
+jobs:
+  build-next:
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.SSH_IP }}
+        username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.SSH_KEY }}
+        script: whoami
