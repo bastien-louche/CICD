@@ -17,6 +17,10 @@ jobs:
      - run: npm install
      - run: npm run build
      - run: ls -lah
+     - run: cd /home
+     - run: ls -lah
+     - run: cd /home/runner/.cache/cypress
+     - run: ls -lah
 
   test:
    runs-on: ubuntu-latest
