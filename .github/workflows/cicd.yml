@@ -19,7 +19,7 @@ jobs:
      - run: ls -lah
      - run: cd /home
      - run: ls -lah
-     - run: cd /home/runner/.cache/
+     - run: cd /
      - run: ls -lah
 
   test:
