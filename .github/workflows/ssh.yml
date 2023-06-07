@@ -1,6 +1,6 @@
 name: ssh
 run-name: ${{ github.actor }} is connect to ssh
-#on: [push]
+on: [push]
 jobs:
   build-next:
     runs-on: ubuntu-latest

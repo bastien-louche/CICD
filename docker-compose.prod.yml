@@ -1,0 +1,6 @@
+services:
+  web:
+    image: ghcr.io/bastien-louche/cicd:latest
+    build: .
+    ports:
+      - "80:3000"
