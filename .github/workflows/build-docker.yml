@@ -34,5 +34,6 @@ jobs:
         script: |
           whoami
           ls -lah
+          cd dev/CICD
           sudo docker compose -f docker-compose.prod.yml pull
           sudo docker compose -f docker-compose.prod.yml up
