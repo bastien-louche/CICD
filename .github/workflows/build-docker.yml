@@ -1,5 +1,5 @@
 name: docker
-on: [push]
+#on: [push]
 jobs:
   buildDocker:
    runs-on: ubuntu-latest
