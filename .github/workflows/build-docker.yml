@@ -3,6 +3,9 @@ on: [push]
 jobs:
   buildDocker:
    runs-on: ubuntu-latest
+   permissions:
+      contents: read
+      packages: write
    steps:
    - uses: actions/checkout@v3
    - uses: docker/setup-qemu-action@v2
@@ -11,11 +14,11 @@ jobs:
      uses: docker/login-action@v2
      with:
       registry: ghcr.io
-      username: ${{ github.repository_owner }}
-      password: ${{ secrets.AUTH_TOKEN }}
+      username: ${{ github.actor }}
+      password: ${{ secrets.GITHUB_TOKEN }}
    - name: Build and push
      uses: docker/build-push-action@v4
      with:
       context: .
       push: true
-      tags: cicd/web-cicd:latest
+      tags: ghcr.io/bastien-louche/cicd/web-cicd:latest
