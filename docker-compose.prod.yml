@@ -4,3 +4,9 @@ services:
     build: .
     ports:
       - "80:3000"
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
