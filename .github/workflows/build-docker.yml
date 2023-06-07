@@ -18,4 +18,4 @@ jobs:
      with:
       context: .
       push: true
-      tags: ghcr.io/cicd/web-cicd:latest
+      tags: cicd/web-cicd:latest
