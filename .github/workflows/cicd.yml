@@ -36,27 +36,27 @@ jobs:
   #      with:
   #        name: e2e-video
   #        path: cypress/videos/
-  ssh:
-    runs-on: ubuntu-latest
-    needs: build
-    - uses: actions/cache@v3
-       with: 
-         path:
-           node_modules
-         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.SSH_IP }}
-        username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          whoami
-          ls -lah
-          cd dev/CICD
-          git pull
-          npm install
-          npm run build
-          pm2 reload npm -- run start
+    ssh:
+      runs-on: ubuntu-latest
+      needs: build
+      - uses: actions/cache@v3
+         with: 
+           path:
+             node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SSH_IP }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            whoami
+            ls -lah
+            cd dev/CICD
+            git pull
+            npm install
+            npm run build
+            pm2 reload npm -- run start
       
