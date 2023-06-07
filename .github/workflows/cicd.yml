@@ -39,28 +39,26 @@ jobs:
   ssh:
     runs-on: ubuntu-latest
     needs: build
-    
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-    - uses: actions/cache@v3
-        with: 
-          path:
-            node_modules
-            /home/.cache/Cypress
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.SSH_IP }}
-        username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          whoami
-          ls -lah
-          cd dev/CICD
-          git pull
-          npm install
-          npm run build
-          pm2 reload npm -- run start
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: actions/cache@v3
+          with: 
+            path:
+              node_modules
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SSH_IP }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            whoami
+            ls -lah
+            cd dev/CICD
+            git pull
+            npm install
+            npm run build
+            pm2 reload npm -- run start
       
