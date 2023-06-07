@@ -21,4 +21,4 @@ jobs:
      with:
       context: .
       push: true
-      tags: ghcr.io/bastien-louche/cicd/web-cicd:latest
+      tags: ghcr.io/${{github.repository}}:latest
