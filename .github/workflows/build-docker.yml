@@ -24,6 +24,7 @@ jobs:
         tags: ghcr.io/${{github.repository}}:latest
   deploy:
     runs-on: ubuntu-latest
+    if: github.ref_name =='main';
     needs: buildDocker
     steps:
     - name: executing remote ssh commands using password
