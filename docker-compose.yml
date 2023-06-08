@@ -15,7 +15,7 @@ services:
       MYSQL_USER: cube
       MYSQL_PASSWORD: cube
       volumes:
-        - ./docker/db:/var/lib/mysql
+        - ../../../docker/db:/var/lib/mysql
   adminer:
     image: adminer
     ports: 
